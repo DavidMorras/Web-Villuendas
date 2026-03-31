@@ -1,0 +1,81 @@
+"use client"
+
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Menu, X } from "lucide-react"
+
+const navLinks = [
+  { label: "Inicio", href: "#" },
+  { label: "Servicios", href: "#servicios" },
+  { label: "Deportistas", href: "#deportistas" },
+  { label: "Testimonios", href: "#testimonios" },
+  { label: "Contacto", href: "#contacto" },
+]
+
+export function Header() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 lg:h-20">
+          <a href="#" className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-lg">DV</span>
+            </div>
+            <div className="hidden sm:block">
+              <p className="font-semibold text-foreground leading-tight">Fisioterapia</p>
+              <p className="text-xs text-muted-foreground">David Villuendas</p>
+            </div>
+          </a>
+
+          <nav className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a 
+                key={link.label}
+                href={link.href}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-4">
+            <Button className="hidden sm:flex">
+              Reservar cita
+            </Button>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="lg:hidden p-2 text-foreground"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      {isOpen && (
+        <div className="lg:hidden border-t border-border bg-background">
+          <nav className="container mx-auto px-6 py-4 space-y-4">
+            {navLinks.map((link) => (
+              <a 
+                key={link.label}
+                href={link.href}
+                className="block text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+            <Button className="w-full mt-4">
+              Reservar cita
+            </Button>
+          </nav>
+        </div>
+      )}
+    </header>
+  )
+}
