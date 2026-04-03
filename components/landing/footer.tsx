@@ -35,7 +35,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-3 opacity-70">
                 <Phone className="w-4 h-4" />
-                <span>+34 XXX XXX XXX</span>
+                <span>+34 636308330</span>
               </li>
               <li className="flex items-center gap-3 opacity-70">
                 <Mail className="w-4 h-4" />
@@ -43,7 +43,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3 opacity-70">
                 <MapPin className="w-4 h-4 mt-0.5" />
-                <span>Zaragoza, España</span>
+                <span>Calle Juan Padilla 1, Calatorao, Spain 50280</span>
               </li>
             </ul>
           </div>
@@ -60,7 +60,7 @@ export function Footer() {
               </a>
             </div>
             <p className="text-sm opacity-70">
-              @davidvilluendas.fisio
+              @dvl.fisioterapia
             </p>
           </div>
         </div>
