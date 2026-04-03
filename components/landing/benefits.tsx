@@ -9,7 +9,7 @@ const benefits = [
   {
     icon: TrendingUp,
     title: "Resultados Reales",
-    description: "Trabajamos con deportistas que compiten a nivel nacional. Sergio Latorregil, Óscar Villaescusa y muchos más confían en nosotros."
+    description: "Trabajamos con deportistas que compiten a nivel nacional. Sergio Latorre Gil, Óscar Villaescusa y muchos más confían en nosotros."
   },
   {
     icon: GraduationCap,
