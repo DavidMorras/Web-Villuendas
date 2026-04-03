@@ -44,7 +44,7 @@ export function Hero() {
 
               {/* WHATSAPP */}
               <a 
-                href="https://wa.me/34XXXXXXXXX"
+                href="https://wa.me/34 636308330"
                 target="_blank"
                 rel="noopener noreferrer"
               >
