@@ -12,7 +12,7 @@ export function Hero() {
           <div className="space-y-8">
             <div className="space-y-4">
               <p className="text-sm font-medium tracking-wider uppercase text-primary">
-                Fisioterapia Deportiva Especializada
+                Centro de fisioterapia
               </p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
                 Elimina el dolor. Mejora tu rendimiento.
