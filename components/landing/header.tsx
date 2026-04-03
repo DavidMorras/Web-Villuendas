@@ -21,7 +21,6 @@ export function Header() {
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <a href="#" className="flex items-center gap-3">
-            {/* LOGO NUEVO */}
             <div className="w-10 h-10 rounded-lg overflow-hidden">
               <Image
                 src="/logovillu.png"
@@ -52,9 +51,17 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Button className="hidden sm:flex">
-              Reservar cita
-            </Button>
+            {/* BOTÓN CALENDLY */}
+            <a 
+              href="https://calendly.com/davidmorras2/masaje-terapeutico"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="hidden sm:flex">
+                Reservar cita
+              </Button>
+            </a>
+
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden p-2 text-foreground"
@@ -80,9 +87,17 @@ export function Header() {
                 {link.label}
               </a>
             ))}
-            <Button className="w-full mt-4">
-              Reservar cita
-            </Button>
+
+            {/* BOTÓN CALENDLY MÓVIL */}
+            <a 
+              href="https://calendly.com/tuusuario/evento"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="w-full mt-4">
+                Reservar cita
+              </Button>
+            </a>
           </nav>
         </div>
       )}
