@@ -3,7 +3,7 @@ import { Medal, Trophy, Users } from "lucide-react"
 const athletes = [
   {
     name: "Sergio Latorregil",
-    handle: "@sergiolatorregil",
+    handle: "@sergiolatorre Gil",
     sport: "Duatlón",
     achievement: "Campeonato de España",
     icon: Medal,
