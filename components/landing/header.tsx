@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
@@ -20,9 +21,18 @@ export function Header() {
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <a href="#" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">DV</span>
+            {/* LOGO NUEVO */}
+            <div className="w-10 h-10 rounded-lg overflow-hidden">
+              <Image
+                src="/logovillu.png"
+                alt="Logo David Villuendas"
+                width={40}
+                height={40}
+                className="object-cover rounded-lg"
+                priority
+              />
             </div>
+
             <div className="hidden sm:block">
               <p className="font-semibold text-foreground leading-tight">Fisioterapia</p>
               <p className="text-xs text-muted-foreground">David Villuendas</p>
