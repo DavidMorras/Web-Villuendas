@@ -53,7 +53,7 @@ export function Header() {
           <div className="flex items-center gap-4">
             {/* BOTÓN CALENDLY */}
             <a 
-              href="https://calendly.com/davidmorras2/masaje-terapeutico"
+              href="https://calendly.com/davidmorras2/masaje-terapeutico?locale=es"
               target="_blank"
               rel="noopener noreferrer"
             >
