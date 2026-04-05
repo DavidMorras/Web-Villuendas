@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, type MouseEvent } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
@@ -15,15 +15,21 @@ const navLinks = [
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState("inicio")
+  const [activeSection, setActiveSection] = useState("#inicio")
 
   // ⭐ SCROLL SUAVE AL HACER CLIC
-  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleSmoothScroll = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
-    const target = document.querySelector(href)
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" })
+
+    if (href === "#inicio") {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    } else {
+      const target = document.querySelector(href)
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" })
+      }
     }
+
     setIsOpen(false)
   }
 
@@ -58,7 +64,11 @@ export function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           
           {/* LOGO */}
-          <a href="#inicio" onClick={(e) => handleSmoothScroll(e, "#inicio")} className="flex items-center gap-3">
+          <a
+            href="#inicio"
+            onClick={(e) => handleSmoothScroll(e, "#inicio")}
+            className="flex items-center gap-3"
+          >
             <div className="w-10 h-10 rounded-lg overflow-hidden">
               <Image
                 src="/logovillu.png"
