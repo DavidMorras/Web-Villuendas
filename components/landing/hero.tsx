@@ -3,8 +3,17 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Calendar, MessageCircle, ArrowRight } from "lucide-react"
+import type { MouseEvent } from "react"
 
 export function Hero() {
+  const handleScrollToServices = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    const target = document.querySelector("#servicios")
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+  }
+
   return (
     <section className="relative min-h-[90vh] flex items-center bg-background overflow-hidden">
       <div className="container mx-auto px-6 lg:px-8">
@@ -15,18 +24,14 @@ export function Hero() {
             className="space-y-8 opacity-0 translate-y-6 animate-[fadeUp_0.8s_ease-out_forwards]"
           >
             <div className="space-y-4">
-
-              {/* MICROCOPY SUPERIOR */}
               <p className="text-sm font-medium tracking-wider uppercase text-primary">
                 Centro de fisioterapia
               </p>
 
-              {/* TÍTULO EMOCIONAL */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
                 Recupera tu mejor versión
               </h1>
 
-              {/* SUBTÍTULO */}
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
                 Tratamientos personalizados para eliminar el dolor, acelerar tu recuperación y volver a entrenar con seguridad.
               </p>
@@ -66,22 +71,20 @@ export function Hero() {
                 </Button>
               </a>
 
-              {/* CTA TERCIARIO – VER SERVICIOS */}
-              <a href="#servicios">
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  className="text-lg px-10 py-7 hover:bg-muted transition-all"
-                >
-                  Ver servicios
-                  <ArrowRight className="ml-2 h-6 w-6" />
-                </Button>
-              </a>
+              {/* CTA TERCIARIO – VER SERVICIOS (SCROLL SUAVE) */}
+              <Button 
+                size="lg"
+                variant="outline"
+                className="text-lg px-10 py-7 hover:bg-muted transition-all"
+                onClick={handleScrollToServices}
+              >
+                Ver servicios
+                <ArrowRight className="ml-2 h-6 w-6" />
+              </Button>
             </div>
 
             {/* MICROCOPYS */}
             <div className="flex items-center gap-8 pt-4">
-
               <div className="text-center">
                 <p className="text-3xl font-bold text-primary">+500</p>
                 <p className="text-sm text-muted-foreground">Deportistas tratados</p>
@@ -100,7 +103,6 @@ export function Hero() {
                 <p className="text-3xl font-bold text-primary">Colegiado</p>
                 <p className="text-sm text-muted-foreground">Nº XXXX</p>
               </div>
-
             </div>
           </div>
 
