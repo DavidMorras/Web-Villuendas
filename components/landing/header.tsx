@@ -38,6 +38,10 @@ export function Header() {
     const sections = navLinks.map((link) => link.href)
 
     const handleScroll = () => {
+      if (window.scrollY < 100) {
+        setActiveSection("#inicio")
+        return
+      }
       const scrollPos = window.scrollY + window.innerHeight / 3
 
       for (const href of sections) {
