@@ -99,8 +99,8 @@ export function Hero() {
               <div className="h-10 w-px bg-border" />
 
               <div className="text-center min-w-[90px]">
-                <p className="text-2xl font-bold text-primary">Colegiado</p>
-                <p className="text-xs text-muted-foreground">Nº XXXX</p>
+                <p className="text-2xl font-bold text-primary">+10.000</p>
+                <p className="text-xs text-muted-foreground">Horas de experiencias</p>
               </div>
 
             </div>
