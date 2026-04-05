@@ -67,13 +67,14 @@ export function Header() {
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           
-          {/* LOGO */}
-          <a
-            href="#inicio"
-            onClick={(e) => handleSmoothScroll(e, "#inicio")}
-            className="flex items-center gap-3"
-          >
-            <div className="w-10 h-10 rounded-lg overflow-hidden">
+          {/* LOGO + NOMBRE */}
+          <div className="flex items-center gap-3 flex-1">
+            <a
+              href="#inicio"
+              onClick={(e) => handleSmoothScroll(e, "#inicio")}
+              className="flex items-center gap-3"
+            >
+             <div className="w-10 h-10 rounded-lg overflow-hidden">
               <Image
                 src="/logovillu.png"
                 alt="Logo David Villuendas"
@@ -83,12 +84,21 @@ export function Header() {
                 priority
               />
             </div>
-
-            <div className="hidden sm:block">
-              <p className="font-semibold text-foreground leading-tight">Fisioterapia</p>
-              <p className="text-xs text-muted-foreground">David Villuendas</p>
-            </div>
           </a>
+
+  {/* NOMBRE CENTRADO SOLO EN MÓVIL */}
+  <div className="flex-1 text-center sm:hidden">
+    <p className="font-semibold text-foreground leading-tight text-sm">
+      Fisioterapia Villuendas
+    </p>
+  </div>
+
+  {/* NOMBRE EN DESKTOP (como antes) */}
+  <div className="hidden sm:flex flex-col">
+    <p className="font-semibold text-foreground leading-tight">Fisioterapia</p>
+    <p className="text-xs text-muted-foreground">David Villuendas</p>
+  </div>
+</div>
 
           {/* NAV DESKTOP */}
           <nav className="hidden lg:flex items-center gap-8">
