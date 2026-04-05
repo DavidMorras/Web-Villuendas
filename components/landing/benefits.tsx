@@ -4,17 +4,12 @@ const benefits = [
   {
     icon: Target,
     title: "Enfoque Deportivo",
-    description: "Especialización en deportistas de alto rendimiento. Entendemos las exigencias de tu disciplina y adaptamos el tratamiento a tus objetivos."
+    description: "He trabajado con deportistas de distintos niveles, desde personas que entrenan por salud hasta atletas que compiten cada semana. Esto me permite identificar rápido qué está fallando, cómo solucionarlo y cómo evitar que vuelva a ocurrir."
   },
   {
     icon: TrendingUp,
     title: "Resultados Reales",
-    description: "Trabajamos con deportistas que compiten a nivel nacional. Sergio Latorre Gil, Óscar Villaescusa y muchos más confían en nosotros."
-  },
-  {
-    icon: GraduationCap,
-    title: "Formación Continua",
-    description: "Nunca dejamos de aprender. Cursos de manipulación vertebral, electrólisis y las técnicas más avanzadas para tu recuperación."
+    description: "Mi enfoque está orientado a que recuperes tu movilidad, reduzcas el dolor y vuelvas a entrenar con seguridad. No solo trato la lesión: te doy herramientas para que entiendas tu cuerpo y puedas seguir progresando sin miedo a recaer."
   },
   {
     icon: Heart,
