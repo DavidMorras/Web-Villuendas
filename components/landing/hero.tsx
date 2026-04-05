@@ -6,12 +6,14 @@ import { Calendar, MessageCircle, ArrowRight } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-background">
+    <section className="relative min-h-[90vh] flex items-center bg-background overflow-hidden">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
+
           {/* TEXTOS */}
-          <div className="space-y-8">
+          <div 
+            className="space-y-8 opacity-0 translate-y-6 animate-[fadeUp_0.8s_ease-out_forwards]"
+          >
             <div className="space-y-4">
 
               {/* MICROCOPY SUPERIOR */}
@@ -24,7 +26,7 @@ export function Hero() {
                 Recupera tu mejor versión
               </h1>
 
-              {/* SUBTÍTULO QUE VENDE EL RESULTADO */}
+              {/* SUBTÍTULO */}
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
                 Tratamientos personalizados para eliminar el dolor, acelerar tu recuperación y volver a entrenar con seguridad.
               </p>
@@ -39,8 +41,11 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button size="lg" className="text-base px-8 py-6">
-                  <Calendar className="mr-2 h-5 w-5" />
+                <Button 
+                  size="lg" 
+                  className="text-lg px-10 py-7 shadow-md hover:shadow-lg transition-all"
+                >
+                  <Calendar className="mr-2 h-6 w-6" />
                   Reservar cita
                 </Button>
               </a>
@@ -54,9 +59,9 @@ export function Hero() {
                 <Button 
                   size="lg" 
                   variant="secondary"
-                  className="text-base px-8 py-6"
+                  className="text-lg px-10 py-7 shadow-sm hover:shadow-md transition-all"
                 >
-                  <MessageCircle className="mr-2 h-5 w-5" />
+                  <MessageCircle className="mr-2 h-6 w-6" />
                   WhatsApp
                 </Button>
               </a>
@@ -66,15 +71,15 @@ export function Hero() {
                 <Button 
                   size="lg"
                   variant="outline"
-                  className="text-base px-8 py-6"
+                  className="text-lg px-10 py-7 hover:bg-muted transition-all"
                 >
                   Ver servicios
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-6 w-6" />
                 </Button>
               </a>
             </div>
 
-            {/* MICROCOPYS / ESTADÍSTICAS */}
+            {/* MICROCOPYS */}
             <div className="flex items-center gap-8 pt-4">
 
               <div className="text-center">
@@ -99,9 +104,11 @@ export function Hero() {
             </div>
           </div>
 
-          {/* IMAGEN */}
-          <div className="relative">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
+          {/* IMAGEN CON ANIMACIÓN */}
+          <div 
+            className="relative opacity-0 scale-105 animate-[fadeZoom_1s_ease-out_forwards]"
+          >
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl">
               <Image
                 src="/images/hero-fisio.jpg"
                 alt="Fisioterapia deportiva profesional"
@@ -114,6 +121,19 @@ export function Hero() {
 
         </div>
       </div>
+
+      {/* ANIMACIONES PERSONALIZADAS */}
+      <style jsx>{`
+        @keyframes fadeUp {
+          0% { opacity: 0; transform: translateY(20px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeZoom {
+          0% { opacity: 0; transform: scale(1.05); }
+          100% { opacity: 1; transform: scale(1); }
+        }
+      `}</style>
     </section>
   )
 }
