@@ -123,7 +123,7 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="hidden sm:flex">
+              <Button className="hidden sm:flex ml-6">
                 Reservar cita
               </Button>
             </a>
