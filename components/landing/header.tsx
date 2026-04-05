@@ -1,12 +1,12 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
 const navLinks = [
-  { label: "Inicio", href: "#" },
+  { label: "Inicio", href: "#inicio" },
   { label: "Servicios", href: "#servicios" },
   { label: "Deportistas", href: "#deportistas" },
   { label: "Testimonios", href: "#testimonios" },
@@ -15,12 +15,50 @@ const navLinks = [
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("inicio")
+
+  // ⭐ SCROLL SUAVE AL HACER CLIC
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    const target = document.querySelector(href)
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+    setIsOpen(false)
+  }
+
+  // ⭐ DETECTAR SECCIÓN ACTIVA AUTOMÁTICAMENTE
+  useEffect(() => {
+    const sections = navLinks.map((link) => link.href)
+
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + window.innerHeight / 3
+
+      for (const href of sections) {
+        const section = document.querySelector(href)
+        if (section) {
+          const top = section.getBoundingClientRect().top + window.scrollY
+          const height = section.clientHeight
+
+          if (scrollPos >= top && scrollPos < top + height) {
+            setActiveSection(href)
+            break
+          }
+        }
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <a href="#" className="flex items-center gap-3">
+          
+          {/* LOGO */}
+          <a href="#inicio" onClick={(e) => handleSmoothScroll(e, "#inicio")} className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg overflow-hidden">
               <Image
                 src="/logovillu.png"
@@ -38,20 +76,26 @@ export function Header() {
             </div>
           </a>
 
+          {/* NAV DESKTOP */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a 
+              <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                onClick={(e) => handleSmoothScroll(e, link.href)}
+                className={`text-sm font-medium transition-colors ${
+                  activeSection === link.href
+                    ? "text-primary font-semibold"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
+          {/* BOTÓN + MENÚ MÓVIL */}
           <div className="flex items-center gap-4">
-            {/* BOTÓN CALENDLY */}
             <a 
               href="https://calendly.com/davidmorras2/masaje-terapeutico?locale=es"
               target="_blank"
@@ -73,24 +117,27 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* MENÚ MÓVIL */}
       {isOpen && (
         <div className="lg:hidden border-t border-border bg-background">
           <nav className="container mx-auto px-6 py-4 space-y-4">
             {navLinks.map((link) => (
-              <a 
+              <a
                 key={link.label}
                 href={link.href}
-                className="block text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => handleSmoothScroll(e, link.href)}
+                className={`block text-base font-medium transition-colors ${
+                  activeSection === link.href
+                    ? "text-primary font-semibold"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
               >
                 {link.label}
               </a>
             ))}
 
-            {/* BOTÓN CALENDLY MÓVIL */}
             <a 
-              href="https://calendly.com/tuusuario/evento"
+              href="https://calendly.com/davidmorras2/masaje-terapeutico?locale=es"
               target="_blank"
               rel="noopener noreferrer"
             >
