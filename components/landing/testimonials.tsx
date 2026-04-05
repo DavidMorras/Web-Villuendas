@@ -1,5 +1,3 @@
-import { Quote } from "lucide-react"
-
 const testimonials = [
   {
     quote: "Un profesional como la copa de un pino!",
@@ -30,16 +28,16 @@ export function Testimonials() {
             Lo que dicen de nosotros
           </h2>
         </div>
+
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
               className="relative p-8 rounded-xl bg-secondary/50 border border-border"
             >
-              <Quote className="w-10 h-10 text-primary/20 absolute top-6 right-6" />
               <blockquote className="relative">
                 <p className="text-xl font-medium text-foreground mb-6 leading-relaxed">
-                  &ldquo;{testimonial.quote}&rdquo;
+                  {testimonial.quote}
                 </p>
                 <footer>
                   <p className="font-semibold text-foreground">{testimonial.author}</p>
