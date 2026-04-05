@@ -1,4 +1,4 @@
-import { Target, TrendingUp, GraduationCap, Heart } from "lucide-react"
+import { Target, TrendingUp, Heart } from "lucide-react"
 
 const benefits = [
   {
