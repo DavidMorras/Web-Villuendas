@@ -17,7 +17,6 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("#inicio")
 
-  // ⭐ SCROLL SUAVE AL HACER CLIC
   const handleSmoothScroll = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
 
@@ -33,7 +32,6 @@ export function Header() {
     setIsOpen(false)
   }
 
-  // ⭐ DETECTAR SECCIÓN ACTIVA AUTOMÁTICAMENTE
   useEffect(() => {
     const sections = navLinks.map((link) => link.href)
 
@@ -66,7 +64,7 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          
+
           {/* LOGO + NOMBRE */}
           <div className="flex items-center gap-3 flex-1">
             <a
@@ -74,31 +72,31 @@ export function Header() {
               onClick={(e) => handleSmoothScroll(e, "#inicio")}
               className="flex items-center gap-3"
             >
-             <div className="w-10 h-10 rounded-lg overflow-hidden">
-              <Image
-                src="/logovillu.png"
-                alt="Logo David Villuendas"
-                width={40}
-                height={40}
-                className="object-cover rounded-lg"
-                priority
-              />
+              <div className="w-10 h-10 rounded-lg overflow-hidden">
+                <Image
+                  src="/logovillu.png"
+                  alt="Logo David Villuendas"
+                  width={40}
+                  height={40}
+                  className="object-cover rounded-lg"
+                  priority
+                />
+              </div>
+            </a>
+
+            {/* NOMBRE CENTRADO SOLO EN MÓVIL */}
+            <div className="flex-1 text-center sm:hidden">
+              <p className="font-semibold text-foreground leading-tight text-sm">
+                Fisioterapia Villuendas
+              </p>
             </div>
-          </a>
 
-  {/* NOMBRE CENTRADO SOLO EN MÓVIL */}
-  <div className="flex-1 text-center sm:hidden">
-    <p className="font-semibold text-foreground leading-tight text-sm">
-      Fisioterapia Villuendas
-    </p>
-  </div>
-
-  {/* NOMBRE EN DESKTOP (como antes) */}
-  <div className="hidden sm:flex flex-col">
-    <p className="font-semibold text-foreground leading-tight">Fisioterapia</p>
-    <p className="text-xs text-muted-foreground">David Villuendas</p>
-  </div>
-</div>
+            {/* NOMBRE EN DESKTOP */}
+            <div className="hidden sm:flex flex-col">
+              <p className="font-semibold text-foreground leading-tight">Fisioterapia</p>
+              <p className="text-xs text-muted-foreground">David Villuendas</p>
+            </div>
+          </div>
 
           {/* NAV DESKTOP */}
           <nav className="hidden lg:flex items-center gap-8">
@@ -160,12 +158,13 @@ export function Header() {
               </a>
             ))}
 
+            {/* MÁS ESPACIO ANTES DEL BOTÓN */}
             <a 
               href="https://calendly.com/davidmorras2/masaje-terapeutico?locale=es"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="w-full mt-4">
+              <Button className="w-full mt-6 pt-2">
                 Reservar cita
               </Button>
             </a>
