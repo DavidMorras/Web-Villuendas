@@ -1,11 +1,19 @@
 "use client"
 
 import Image from "next/image"
+import { useState, type MouseEvent } from "react"
 import { Instagram, Phone, Mail, MapPin } from "lucide-react"
-import { useState } from "react"
 
 export function Footer() {
   const [openModal, setOpenModal] = useState<"legal" | "privacy" | null>(null)
+
+  const handleScrollToServices = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const target = document.querySelector("#servicios")
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+  }
 
   return (
     <>
@@ -37,15 +45,55 @@ export function Footer() {
               </p>
             </div>
 
-            {/* SERVICIOS → TODOS LLEVAN A #servicios */}
+            {/* SERVICIOS → SCROLL SUAVE A #servicios */}
             <div className="space-y-4">
               <h4 className="font-semibold">Servicios</h4>
               <ul className="space-y-2 text-sm opacity-70">
-                <li><a href="#servicios" className="hover:opacity-100 transition-opacity">Terapia Manual</a></li>
-                <li><a href="#servicios" className="hover:opacity-100 transition-opacity">Electrólisis Percutánea</a></li>
-                <li><a href="#servicios" className="hover:opacity-100 transition-opacity">Punción Seca</a></li>
-                <li><a href="#servicios" className="hover:opacity-100 transition-opacity">Preparación Pre-Competición</a></li>
-                <li><a href="#servicios" className="hover:opacity-100 transition-opacity">Recuperación Post-Lesión</a></li>
+                <li>
+                  <a
+                    href="#servicios"
+                    onClick={handleScrollToServices}
+                    className="hover:opacity-100 transition-opacity"
+                  >
+                    Terapia Manual
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#servicios"
+                    onClick={handleScrollToServices}
+                    className="hover:opacity-100 transition-opacity"
+                  >
+                    Electrólisis Percutánea
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#servicios"
+                    onClick={handleScrollToServices}
+                    className="hover:opacity-100 transition-opacity"
+                  >
+                    Punción Seca
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#servicios"
+                    onClick={handleScrollToServices}
+                    className="hover:opacity-100 transition-opacity"
+                  >
+                    Preparación Pre-Competición
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#servicios"
+                    onClick={handleScrollToServices}
+                    className="hover:opacity-100 transition-opacity"
+                  >
+                    Recuperación Post-Lesión
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -112,7 +160,7 @@ export function Footer() {
         </div>
       </footer>
 
-      {/* ⭐ MODAL LEGAL / PRIVACIDAD */}
+      {/* MODAL LEGAL / PRIVACIDAD */}
       {openModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[999]">
           <div className="bg-background text-foreground p-8 rounded-xl max-w-lg w-full shadow-xl">
