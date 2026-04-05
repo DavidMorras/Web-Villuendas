@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Calendar, MessageCircle } from "lucide-react"
+import { Calendar, MessageCircle, ArrowRight } from "lucide-react"
 
 export function Hero() {
   return (
@@ -13,24 +13,27 @@ export function Hero() {
           {/* TEXTOS */}
           <div className="space-y-8">
             <div className="space-y-4">
+
+              {/* MICROCOPY SUPERIOR */}
               <p className="text-sm font-medium tracking-wider uppercase text-primary">
                 Centro de fisioterapia
               </p>
 
-              {/* NUEVO TÍTULO */}
+              {/* TÍTULO EMOCIONAL */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
-                ¿Dolor o lesión? Te ayudamos a recuperarte rápido y bien
+                Recupera tu mejor versión
               </h1>
 
-              {/* NUEVO SUBTÍTULO */}
+              {/* SUBTÍTULO QUE VENDE EL RESULTADO */}
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
-                Evaluación completa, tratamiento personalizado y resultados reales desde la primera sesión.
+                Tratamientos personalizados para eliminar el dolor, acelerar tu recuperación y volver a entrenar con seguridad.
               </p>
             </div>
 
             {/* BOTONES */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              {/* CALENDLY */}
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+
+              {/* CTA PRINCIPAL – CALENDLY */}
               <a 
                 href="https://calendly.com/davidmorras2/masaje-terapeutico?locale=es"
                 target="_blank"
@@ -38,29 +41,42 @@ export function Hero() {
               >
                 <Button size="lg" className="text-base px-8 py-6">
                   <Calendar className="mr-2 h-5 w-5" />
-                  Reservar sesión
+                  Reservar cita
                 </Button>
               </a>
 
-              {/* WHATSAPP */}
+              {/* CTA SECUNDARIO – WHATSAPP */}
               <a 
-                href="https://wa.me/34 636308330"
+                href="https://wa.me/34636308330"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Button 
                   size="lg" 
-                  variant="secondary" 
+                  variant="secondary"
                   className="text-base px-8 py-6"
                 >
                   <MessageCircle className="mr-2 h-5 w-5" />
                   WhatsApp
                 </Button>
               </a>
+
+              {/* CTA TERCIARIO – VER SERVICIOS */}
+              <a href="#servicios">
+                <Button 
+                  size="lg"
+                  variant="outline"
+                  className="text-base px-8 py-6"
+                >
+                  Ver servicios
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </a>
             </div>
 
-            {/* ESTADÍSTICAS */}
+            {/* MICROCOPYS / ESTADÍSTICAS */}
             <div className="flex items-center gap-8 pt-4">
+
               <div className="text-center">
                 <p className="text-3xl font-bold text-primary">+500</p>
                 <p className="text-sm text-muted-foreground">Deportistas tratados</p>
@@ -69,16 +85,17 @@ export function Hero() {
               <div className="h-12 w-px bg-border" />
 
               <div className="text-center">
-                <p className="text-3xl font-bold text-primary">10+</p>
-                <p className="text-sm text-muted-foreground">Años de experiencia</p>
+                <p className="text-3xl font-bold text-primary">100%</p>
+                <p className="text-sm text-muted-foreground">Atención individual</p>
               </div>
 
               <div className="h-12 w-px bg-border" />
 
               <div className="text-center">
-                <p className="text-3xl font-bold text-primary">98%</p>
-                <p className="text-sm text-muted-foreground">Satisfacción</p>
+                <p className="text-3xl font-bold text-primary">Colegiado</p>
+                <p className="text-sm text-muted-foreground">Nº XXXX</p>
               </div>
+
             </div>
           </div>
 
@@ -92,14 +109,6 @@ export function Hero() {
                 className="object-cover"
                 priority
               />
-            </div>
-
-            {/* TARJETA FLOTANTE */}
-            <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-xl shadow-lg max-w-xs hidden lg:block">
-              <p className="font-semibold text-lg">Formación continua</p>
-              <p className="text-sm opacity-90 mt-1">
-                Siempre actualizando técnicas para ofrecerte el mejor tratamiento
-              </p>
             </div>
           </div>
 
