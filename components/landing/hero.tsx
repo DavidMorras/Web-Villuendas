@@ -15,35 +15,18 @@ export function Hero() {
   }
 
   return (
-    <section className="relative min-h-[85svh] flex items-center bg-background overflow-hidden">
+    <section className="relative flex items-center bg-background overflow-hidden py-20">
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-          {/* IMAGEN (MÓVIL ARRIBA) */}
-          <div 
-            className="relative opacity-0 scale-105 animate-[fadeZoom_1s_ease-out_forwards]"
-          >
-            <div className="relative w-full h-[380px] sm:h-[450px] rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src="/images/hero-fisio.jpg"
-                alt="Fisioterapia deportiva profesional"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div>
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* TEXTOS */}
-          <div 
-            className="space-y-8 opacity-0 translate-y-6 animate-[fadeUp_0.8s_ease-out_forwards]"
-          >
+          <div className="space-y-8 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]">
             <div className="space-y-4">
               <p className="text-sm font-medium tracking-wider uppercase text-primary">
                 Centro de fisioterapia
               </p>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                 Recupera tu mejor versión
               </h1>
 
@@ -54,7 +37,6 @@ export function Hero() {
 
             {/* BOTONES */}
             <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-
               <a 
                 href="https://calendly.com/davidmorras2/masaje-terapeutico?locale=es"
                 target="_blank"
@@ -62,7 +44,7 @@ export function Hero() {
               >
                 <Button 
                   size="lg" 
-                  className="text-lg px-10 py-7 shadow-md hover:shadow-lg transition-all w-full sm:w-auto"
+                  className="text-lg px-10 py-7 shadow-md hover:shadow-lg transition-all"
                 >
                   <Calendar className="mr-2 h-6 w-6" />
                   Reservar cita
@@ -77,7 +59,7 @@ export function Hero() {
                 <Button 
                   size="lg" 
                   variant="secondary"
-                  className="text-lg px-10 py-7 shadow-sm hover:shadow-md transition-all w-full sm:w-auto"
+                  className="text-lg px-10 py-7 shadow-sm hover:shadow-md transition-all"
                 >
                   <MessageCircle className="mr-2 h-6 w-6" />
                   WhatsApp
@@ -87,7 +69,7 @@ export function Hero() {
               <Button 
                 size="lg"
                 variant="outline"
-                className="text-lg px-10 py-7 hover:bg-muted transition-all w-full sm:w-auto"
+                className="text-lg px-10 py-7 hover:bg-muted transition-all"
                 onClick={handleScrollToServices}
               >
                 Ver servicios
@@ -96,26 +78,40 @@ export function Hero() {
             </div>
 
             {/* MICROCOPYS */}
-            <div className="flex items-center justify-between sm:justify-start sm:gap-8 pt-4">
+            <div className="flex items-center gap-6 sm:gap-8 pt-4 flex-wrap">
 
-              <div className="text-center">
+              <div className="text-center min-w-[100px]">
                 <p className="text-3xl font-bold text-primary">+500</p>
                 <p className="text-sm text-muted-foreground">Deportistas tratados</p>
               </div>
 
               <div className="hidden sm:block h-12 w-px bg-border" />
 
-              <div className="text-center">
+              <div className="text-center min-w-[100px]">
                 <p className="text-3xl font-bold text-primary">100%</p>
                 <p className="text-sm text-muted-foreground">Atención individual</p>
               </div>
 
               <div className="hidden sm:block h-12 w-px bg-border" />
 
-              <div className="text-center">
+              <div className="text-center min-w-[100px]">
                 <p className="text-3xl font-bold text-primary">Colegiado</p>
                 <p className="text-sm text-muted-foreground">Nº XXXX</p>
               </div>
+
+            </div>
+          </div>
+
+          {/* IMAGEN A LA DERECHA */}
+          <div className="relative opacity-0 scale-105 animate-[fadeZoom_1s_ease-out_forwards]">
+            <div className="relative w-full h-[450px] md:h-[550px] rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/images/hero-fisio.jpg"
+                alt="Fisioterapia deportiva profesional"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
 
