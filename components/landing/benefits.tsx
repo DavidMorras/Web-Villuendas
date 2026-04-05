@@ -19,7 +19,7 @@ const benefits = [
   {
     icon: Heart,
     title: "Trato Cercano",
-    description: "Cada deportista es único. Te escuchamos, te entendemos y diseñamos un plan personalizado para que alcances tus metas."
+    description: "Cada persona, cada lesión y cada objetivo deportivo es diferente. Por eso dedico el tiempo necesario a entender tu caso y adaptar el tratamiento a lo que realmente necesitas. Mi prioridad es que te sientas escuchado, acompañado y en buenas manos desde el primer minuto."
   }
 ]
 
